@@ -253,7 +253,13 @@ int main(int argc, char** argv) {
             params.pfc_mode = true;
 
         } else if (!strcmp(argv[4], "stream")) {
-            params.streaming_mode = true;
+            params.streaming_reply = true;
+
+        } else if (!strcmp(argv[4], "add-special")) {
+            params.add_special = true;
+
+        } else if (!strcmp(argv[4], "parse-special")) {
+            params.parse_special = true;
 
         }
 

@@ -57,7 +57,8 @@ struct model_params {
     bool pfc_mode                      = false; // prefix cache mode
     bool first_prompt                  = true; // indicate first time through
     bool save_llm_state                = false;
-    bool streaming_mode                = false; // streaming replies instead of batching it up 
+    bool add_special                   = false; // for tokenizer: add special tokens before the prompt
+    bool parse_special                 = false; // for tokenizer: parse recognized special tokens in text
 };
 
 LLM_INFER_API bool llm_initialize(model_params& params);

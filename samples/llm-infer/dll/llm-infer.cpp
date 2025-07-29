@@ -163,7 +163,7 @@ bool llm_initialize(
             // build the shared prompt
             params.pfx_shared = template_prompt.substr(0, pos);
             // tokenize(a) + tokenize(b) != tokenize(a+b), we tokenize pfx and content separately
-            llm_tokens_shared = slm_tokenize(llm_ctx, params.pfx_shared, false, false);
+            llm_tokens_shared = slm_tokenize(llm_ctx, params.pfx_shared, params.add_special, params.parse_special);
             // build the cache file directory
             params.pfx_file = pfx_file_path(params.pfx_shared);
             // load the cache and create one if it does not exist
@@ -247,7 +247,7 @@ bool llm_inference(
     }
 
     // tokenize the remaining prompt or full prompt if pfc_mode is off
-    std::vector<llama_token> tokens_input = slm_tokenize(llm_ctx, params.prompt, false, false);
+    std::vector<llama_token> tokens_input = slm_tokenize(llm_ctx, params.prompt, params.add_special, params.parse_special);
 
     // append the variant part of the prompt or use the full prompt (for non pfc mode)
     embd_inp.insert(embd_inp.end(), tokens_input.begin(), tokens_input.end());
@@ -368,7 +368,7 @@ bool llm_inference(
         // sample the last token just received
         llama_token new_token_id = llama_sampler_sample(smpl, llm_ctx, -1);
 
-        // check wither it is the end of text generation 
+        // check whether it is the end of text generation 
         if (llama_token_is_eog(llm_model, new_token_id)) {
             printf("\n");
             break;
@@ -555,7 +555,7 @@ bool embed_encode_batch(
 
     // Tokenize the prompts and trim
     for (auto & chunk : chunks) {
-        auto inp = slm_tokenize(embed_ctx, chunk.textdata, true, false);
+        auto inp = slm_tokenize(embed_ctx, chunk.textdata, true, params.parse_special);
         if (inp.size() > params.n_batch) {
             fprintf(stderr, "%s: error: chunk size (%lld) exceeds batch size (%lld), increase batch size and re-run\n",
                     __func__, (long long int) inp.size(), (long long int) params.n_batch);
@@ -631,7 +631,7 @@ bool embed_encode_batch_single(
 
     // Tokenize the prompts and trim
     for (auto & chunk : chunks) {
-        chunk.tokens = slm_tokenize(embed_ctx, chunk.textdata, true, false);
+        chunk.tokens = slm_tokenize(embed_ctx, chunk.textdata, true, params.parse_special);
         size_t n_tokens = chunk.tokens.size();
         if (n_tokens > params.n_batch) {
             fprintf(stderr, "%s: error: chunk size (%lld) exceeds batch size (%lld), increase batch size and re-run\n",
@@ -673,7 +673,7 @@ bool embed_encode_single(
     const int n_embd = llama_n_embd(embed_model);
     std::vector<float> query_embeddings(n_embd, 0);
     
-    std::vector<int32_t> query_tokens = slm_tokenize(embed_ctx, query, true, false);
+    std::vector<int32_t> query_tokens = slm_tokenize(embed_ctx, query, true, params.parse_special);
     size_t n_tokens = query_tokens.size();
     if (n_tokens > params.n_batch) {
         fprintf(stderr, "%s: error: query string size (%lld) exceeds batch size (%lld), increase batch size and re-run\n",
