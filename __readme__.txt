@@ -46,4 +46,86 @@ temperature: Influences the randomness of the output. Lower values make the mode
 top_p: Controls the diversity of generated responses by only considering the top p percent of probability mass.
 n_gpu_layers: (For GPU users) Determines how many layers of the model should be offloaded to the GPU, optimizing performance.
 
+============================================
+
+D:\llama.cpp\bitnet>d:\Python39\python.exe utils\codegen_tl2.py --model bitnet_b1_58-3B --BM 160,320,320 --BK 96,96,96 --bm 32,32,32
+
+D:\llama.cpp\bitnet>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        include/bitnet-lut-kernels.h
+        include/kernel_config.ini
+
+
+================================
+
+
+D:\llama.cpp\bitnet\build>cmake .. -DBITNET_X86_TL2=ON -T ClangCL -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++
+-- The C compiler identification is Clang 19.1.5 with MSVC-like command-line
+-- The CXX compiler identification is Clang 19.1.5 with MSVC-like command-line
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - not found
+-- Found Threads: TRUE
+-- Found Git: C:/Program Files/Git/cmd/git.exe (found version "2.50.1.vfs.0.0")
+-- Found OpenMP_C: -Xclang -fopenmp (found version "5.1")
+-- Found OpenMP_CXX: -Xclang -fopenmp (found version "5.1")
+-- Found OpenMP: TRUE (found version "5.1")
+-- OpenMP found
+-- Using llamafile
+-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
+-- CMAKE_SYSTEM_PROCESSOR: AMD64
+-- CMAKE_GENERATOR_PLATFORM:
+-- x86 detected
+-- Performing Test HAS_AVX_1
+-- Performing Test HAS_AVX_1 - Failed
+-- Performing Test HAS_AVX_2
+-- Performing Test HAS_AVX_2 - Success
+-- Performing Test HAS_AVX2_1
+-- Performing Test HAS_AVX2_1 - Failed
+-- Performing Test HAS_AVX2_2
+-- Performing Test HAS_AVX2_2 - Success
+-- Performing Test HAS_FMA_1
+-- Performing Test HAS_FMA_1 - Failed
+-- Performing Test HAS_FMA_2
+-- Performing Test HAS_FMA_2 - Success
+-- Performing Test HAS_AVX512_1
+-- Performing Test HAS_AVX512_1 - Failed
+-- Performing Test HAS_AVX512_2
+-- Performing Test HAS_AVX512_2 - Success
+-- Configuring done (38.1s)
+-- Generating done (0.5s)
+-- Build files have been written to: D:/llama.cpp/bitnet/build
+
+D:\llama.cpp\bitnet\build>
+
+
+================================
+
+D:\llama.cpp\bitnet\build>cmake --build . --config RelWithDebInfo --target llama-cli llama-bench
+MSBuild version 17.14.14+a129329f1 for .NET Framework
+
+  1>Checking Build System
+  Generating build details from Git
+  -- Found Git: C:/Program Files/Git/cmd/git.exe (found version "2.50.1.vfs.0.0")
+  Building Custom Rule D:/llama.cpp/bitnet/3rdparty/llama.cpp/common/CMakeLists.txt
+  build_info.vcxproj -> D:\llama.cpp\bitnet\build\3rdparty\llama.cpp\common\build_info.dir\RelWithDebInfo\build_info.lib
+  Building Custom Rule D:/llama.cpp/bitnet/3rdparty/llama.cpp/ggml/src/CMakeLists.txt
+
 
