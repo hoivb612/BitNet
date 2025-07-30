@@ -141,6 +141,7 @@ bool llm_initialize(
     llm_ctx_params.n_batch = params.n_batch;
     llm_ctx_params.n_threads = params.n_threads;
     llm_ctx_params.n_threads_batch = params.n_threads;
+    llm_ctx_params.no_perf = false;
 
     llm_ctx = llama_new_context_with_model(llm_model, llm_ctx_params);
 
