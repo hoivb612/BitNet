@@ -149,3 +149,74 @@ C:\llama.cpp\bitnet>type .gitmodules
         url = https://github.com/XbGH-MS/llama-lut.cpp
 
 
+=================================
+
+C:\llama.cpp\bitnet>git submodule status
+ 40ed0f290203a9a78540b8f7eb18bd828043fe21 3rdparty/llama.cpp (b3639-321-g40ed0f29)
++1b67cfb20f07792fe8c54569aa3e1d528f3db2c2 XbGH-MS (heads/hv/cpf)
+
+C:\llama.cpp\bitnet>git submodule update --remote --merge
+
+C:\llama.cpp\bitnet>git status
+On branch hv/cpf
+Your branch is up to date with 'origin/hv/cpf'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+        modified:   3rdparty/llama.cpp (modified content)
+        modified:   XbGH-MS (new commits)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\llama.cpp\bitnet>git add XbGH-MS
+
+C:\llama.cpp\bitnet>git status
+On branch hv/cpf
+Your branch is up to date with 'origin/hv/cpf'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   XbGH-MS
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+        modified:   3rdparty/llama.cpp (modified content)
+
+
+C:\llama.cpp\bitnet>git commit -m "Update XbGH-MS to latest commit"
+[hv/cpf e0814a8] Update XbGH-MS to latest commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\llama.cpp\bitnet>git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 263 bytes | 263.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/hoivb612/BitNet.git
+To https://github.com/hoivb612/bitnet
+   193a216..e0814a8  hv/cpf -> hv/cpf
+
+C:\llama.cpp\bitnet>git status
+On branch hv/cpf
+Your branch is up to date with 'origin/hv/cpf'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+        modified:   3rdparty/llama.cpp (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\llama.cpp\bitnet>
+
+
+
