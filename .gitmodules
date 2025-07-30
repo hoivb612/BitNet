@@ -2,3 +2,7 @@
 	path = 3rdparty/llama.cpp
 	url = https://github.com/Eddie-Wang1120/llama.cpp.git
 	branch = merge-dev
+[submodule "XbGH-MS"]
+	path = XbGH-MS
+	url = https://github.com/XbGH-MS/llama-lut.cpp
+	branch = hv/cpf

@@ -129,3 +129,23 @@ MSBuild version 17.14.14+a129329f1 for .NET Framework
   Building Custom Rule D:/llama.cpp/bitnet/3rdparty/llama.cpp/ggml/src/CMakeLists.txt
 
 
+================================
+
+C:\llama.cpp\bitnet>git submodule add https://github.com/XbGH-MS/llama-lut.cpp XbGH-MS/
+Cloning into 'C:/llama.cpp/bitnet/XbGH-MS'...
+remote: Enumerating objects: 22239, done.
+remote: Total 22239 (delta 0), reused 0 (delta 0), pack-reused 22239 (from 1)
+Receiving objects: 100% (22239/22239), 44.76 MiB | 49.45 MiB/s, done.
+Resolving deltas: 100% (15792/15792), done.
+warning: in the working copy of '.gitmodules', LF will be replaced by CRLF the next time Git touches it
+
+C:\llama.cpp\bitnet>type .gitmodules
+[submodule "3rdparty/llama.cpp"]
+        path = 3rdparty/llama.cpp
+        url = https://github.com/Eddie-Wang1120/llama.cpp.git
+        branch = merge-dev
+[submodule "XbGH-MS"]
+        path = XbGH-MS
+        url = https://github.com/XbGH-MS/llama-lut.cpp
+
+
