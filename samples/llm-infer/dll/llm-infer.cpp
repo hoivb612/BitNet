@@ -398,17 +398,14 @@ bool llm_inference(
         }
     }
 
-#if 0
-    int64_t t_us = (ggml_time_us() - t2_start);
-    printf("> token generation time = %.2fms (%d) (%.2ft/s) (%.2fms)\n", 
-        t_us / 1000.0f,
-        n_tokens_generated, 
-        n_tokens_generated / (t_us / 1000000.0f),
-        (t_us / (n_tokens_generated * 1000.0f)));
-
-    // accumulate the token generation time
-    params.t_llm_token_generation_time += t_us;
-#endif
+    if (params.verbose) {
+        int64_t t_us = (ggml_time_us() - t2_start);
+        printf("> token generation time = %.2fms (%d) (%.2ft/s) (%.2fms)\n", 
+            t_us / 1000.0f,
+            n_tokens_generated, 
+            n_tokens_generated / (t_us / 1000000.0f),
+            (t_us / (n_tokens_generated * 1000.0f)));
+    }
 
     params.reply = slm_output;
 

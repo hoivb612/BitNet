@@ -252,6 +252,9 @@ int main(int argc, char** argv) {
         if (!strcmp(argv[4], "pfc")) {
             params.pfc_mode = true;
 
+        } else if (!strcmp(argv[4], "verbose")) {
+            params.verbose = true;
+
         } else if (!strcmp(argv[4], "stream")) {
             params.streaming_reply = true;
 
@@ -324,10 +327,20 @@ int main(int argc, char** argv) {
             params.reply = "";
         }
 
-        if (!params.streaming_reply) {
-            printf("%s\n<<\n\n\n", params.reply.c_str());
+        if (params.streaming_reply) {
+            // in streaming mode the reply should already be done post llm_inference()
+            printf("\n<<\n");
         } else {
-            printf("\n<<\n\n\n");
+            bool end_of_reply = false;
+            for (auto c: params.reply) {
+                if (!end_of_reply) {
+                    printf("%c", c);
+                }
+                if (c == '}') {
+                    printf("\n\n");
+                    break;
+                }
+            }
         }
 
         params.first_prompt = false;
@@ -342,11 +355,9 @@ int main(int argc, char** argv) {
     console::set_display(console::stats);
 
     t0 = ggml_time_us() - t0;
-    printf("\n\n total elapsed time %7.2fsec\n", (double)t0 / (1000. * 1000.));
+    printf("\n\n total elapsed time %7.2fsec\n\n", (double)t0 / (1000. * 1000.));
 
-#ifdef GGML_TENSOR_OP_PERF
-    print_tensor_op_perf_data(t0);
-#endif // GGML_TENSOR_OP_PERF
+    llama_print_tensor_op_perf();
 
 console::cleanup();
 
