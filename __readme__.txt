@@ -216,7 +216,12 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 
-C:\llama.cpp\bitnet>
+C:\llama.cpp\bitnet>git submodule status
+ 40ed0f290203a9a78540b8f7eb18bd828043fe21 3rdparty/llama.cpp (b3639-321-g40ed0f29)
+ 1b67cfb20f07792fe8c54569aa3e1d528f3db2c2 XbGH-MS (heads/hv/cpf)
+
+==================================================
+
 
 
 

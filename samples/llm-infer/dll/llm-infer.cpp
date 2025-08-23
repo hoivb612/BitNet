@@ -371,7 +371,9 @@ bool llm_inference(
 
         // check whether it is the end of text generation 
         if (llama_token_is_eog(llm_model, new_token_id)) {
-            printf("\n");
+            if (params.streaming_reply) {
+                printf("\n");
+            }
             break;
         }
 
