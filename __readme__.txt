@@ -25,6 +25,92 @@ Submodule path '3rdparty/llama.cpp/ggml/src/kompute': checked out '4565194ed7c32
 
 =============================================
 
+C:\llama.cpp\bitnet.cpp>git submodule init
+Submodule 'XbGH-MS' (https://github.com/XbGH-MS/llama-lut.cpp) registered for path 'XbGH-MS'
+
+C:\llama.cpp\bitnet.cpp>git pull --recurse-submodules
+warning: fetch normally indicates which branches had a forced update,
+but that check has been disabled; to re-enable, use '--show-forced-updates'
+flag or run 'git config fetch.showForcedUpdates true'
+Fetching submodule 3rdparty/llama.cpp
+warning: fetch normally indicates which branches had a forced update,
+but that check has been disabled; to re-enable, use '--show-forced-updates'
+flag or run 'git config fetch.showForcedUpdates true'
+Fetching submodule 3rdparty/llama.cpp/ggml/src/kompute
+warning: fetch normally indicates which branches had a forced update,
+but that check has been disabled; to re-enable, use '--show-forced-updates'
+flag or run 'git config fetch.showForcedUpdates true'
+Already up to date.
+Cloning into 'C:/llama.cpp/bitnet.cpp/XbGH-MS'...
+Submodule path 'XbGH-MS': checked out 'c1bce4b4ee4168c765a8eac8b59c394df6f3e0c1'
+
+C:\llama.cpp\bitnet.cpp>dir XbGH-MS
+ Volume in drive C is Local Disk
+ Volume Serial Number is 82FA-0DBF
+
+ Directory of C:\llama.cpp\bitnet.cpp\XbGH-MS
+
+08/27/2025  11:43 AM    <DIR>          .
+08/27/2025  11:40 AM    <DIR>          ..
+08/27/2025  11:43 AM               791 .clang-tidy
+08/27/2025  11:43 AM    <DIR>          .devops
+08/27/2025  11:43 AM               237 .dockerignore
+08/27/2025  11:43 AM                97 .ecrc
+08/27/2025  11:43 AM               599 .editorconfig
+08/27/2025  11:43 AM               544 .flake8
+08/27/2025  11:43 AM    <DIR>          .github
+08/27/2025  11:43 AM             1,543 .gitignore
+08/27/2025  11:43 AM                94 .gitmodules
+08/27/2025  11:43 AM               447 .pre-commit-config.yaml
+08/27/2025  11:43 AM            33,717 AUTHORS
+08/27/2025  11:43 AM    <DIR>          ci
+08/27/2025  11:43 AM    <DIR>          cmake
+08/27/2025  11:43 AM             6,519 CMakeLists.txt
+08/27/2025  11:43 AM             3,164 CMakePresets.json
+08/27/2025  11:43 AM    <DIR>          common
+08/27/2025  11:43 AM             2,348 CONTRIBUTING.md
+08/27/2025  11:43 AM            69,682 convert.py
+08/27/2025  11:43 AM           202,941 convert_hf_to_gguf.py
+08/27/2025  11:43 AM            16,239 convert_hf_to_gguf_update.py
+08/27/2025  11:43 AM            19,106 convert_llama_ggml_to_gguf.py
+08/27/2025  11:43 AM            15,058 convert_lora_to_gguf.py
+08/27/2025  11:43 AM    <DIR>          docs
+08/27/2025  11:43 AM    <DIR>          examples
+08/27/2025  11:43 AM             1,556 flake.lock
+08/27/2025  11:43 AM             7,469 flake.nix
+08/27/2025  11:43 AM    <DIR>          ggml
+08/27/2025  11:43 AM    <DIR>          gguf-py
+08/27/2025  11:43 AM    <DIR>          grammars
+08/27/2025  11:43 AM    <DIR>          include
+08/27/2025  11:43 AM             1,078 LICENSE
+08/27/2025  11:43 AM            50,521 Makefile
+08/27/2025  11:43 AM    <DIR>          media
+08/27/2025  11:43 AM    <DIR>          models
+08/27/2025  11:43 AM               163 mypy.ini
+08/27/2025  11:43 AM             2,159 Package.swift
+08/27/2025  11:43 AM    <DIR>          pocs
+08/27/2025  11:43 AM           124,786 poetry.lock
+08/27/2025  11:43 AM    <DIR>          prompts
+08/27/2025  11:43 AM             1,280 pyproject.toml
+08/27/2025  11:43 AM               619 pyrightconfig.json
+08/27/2025  11:43 AM            28,974 README.md
+08/27/2025  11:43 AM    <DIR>          requirements
+08/27/2025  11:43 AM               505 requirements.txt
+08/27/2025  11:43 AM    <DIR>          scripts
+08/27/2025  11:43 AM             5,090 SECURITY.md
+08/27/2025  11:43 AM    <DIR>          spm-headers
+08/27/2025  11:43 AM    <DIR>          spm-sources
+08/27/2025  11:43 AM    <DIR>          src
+08/27/2025  11:43 AM    <DIR>          tests
+08/27/2025  11:43 AM    <DIR>          test_op
+08/27/2025  11:43 AM                74 __readme__.txt
+              30 File(s)        597,400 bytes
+              24 Dir(s)  327,519,580,160 bytes free
+
+C:\llama.cpp\bitnet.cpp>
+
+=============================================
+
 Llama.cpp Architecture
 
 The architecture of Llama.cpp is a thoughtful adaptation of the original LLaMa models, incorporating several key innovations that distinguish it from conventional transformer models:
